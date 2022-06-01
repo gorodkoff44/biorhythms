@@ -1,0 +1,15 @@
+C:\Users\Comp0707\source\repos\Биоритмы\bin\Debug\Биоритмы.exe.config
+C:\Users\Comp0707\source\repos\Биоритмы\bin\Debug\Биоритмы.exe
+C:\Users\Comp0707\source\repos\Биоритмы\bin\Debug\Биоритмы.pdb
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\Биоритмы.csprojAssemblyReference.cache
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\MainWindow.g.cs
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\App.g.cs
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\Биоритмы_MarkupCompile.cache
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\Биоритмы_MarkupCompile.lref
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\MainWindow.baml
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\Биоритмы.g.resources
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\Биоритмы.Properties.Resources.resources
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\Биоритмы.csproj.GenerateResource.cache
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\Биоритмы.csproj.CoreCompileInputs.cache
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\Биоритмы.exe
+C:\Users\Comp0707\source\repos\Биоритмы\obj\Debug\Биоритмы.pdb
