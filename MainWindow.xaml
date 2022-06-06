@@ -36,7 +36,7 @@
                 <TextBlock Grid.Column="0" Grid.Row="1" Text="Дата рождения" />
                 <DatePicker x:Name="SelDRCom"  Grid.Column="1" Grid.Row="1" SelectedDateFormat="Long" SelectedDate="01/01/2000" DisplayDateStart="01/01/1900" DisplayDateEnd="12/31/2030" FirstDayOfWeek="Monday" />
                 <TextBlock Grid.Column="0" Grid.Row="2" Text="Дата отсчёта" />
-                <DatePicker Name="DO" Grid.Column="1" Grid.Row="2" SelectedDateFormat="Long" SelectedDate="01/01/2000" DisplayDateStart="01/01/1900" DisplayDateEnd="12/31/30" FirstDayOfWeek="Monday" />
+                <DatePicker Name="DO" Grid.Column="1" Grid.Row="2" SelectedDateFormat="Long" SelectedDate="01/01/2000" DisplayDateStart="01/01/1900" DisplayDateEnd="12/31/2030" FirstDayOfWeek="Monday" />
                 <TextBlock x:Name="dp" Grid.Column="0" Grid.Row="3" Text="Длительность прогноза" />
                 <ComboBox x:Name="ComDlit" Grid.Column="1" Grid.Row="3" >
                     <TextBlock Text="5" />
@@ -47,13 +47,24 @@
                     <TextBlock Text="30" />
                 </ComboBox>
                 <CheckBox x:Name="pvd" Grid.ColumnSpan="2" Grid.Row="4" Content="Производный ввод длительности прогноза" Click="Pvd_Click" />
-                <TextBox x:Name="ProizvProg" Grid.Column="1" Grid.Row="5" Text="100" Visibility="Hidden" />
-                <Button x:Name="ok" Content="Ok" Grid.Column="0" Grid.Row="6" Click="Ok_Click" />
+                <TextBox x:Name="ProizvProg" Grid.Column="1" Grid.Row="3" Text="100" Visibility="Hidden" />
+                <Button x:Name="ok" Content="Ok" Grid.Column="0" Grid.Row="6" Click="Ok_Click" Margin="5" />
+                <Button x:Name="Graphic" Grid.Column="2" Grid.Row="6" Content="Построить график" Click="Graphic_Click" Margin="5" />
             </Grid>
             <Grid Grid.Column="1" Margin="10">
-                <DataGrid x:Name="BioGrid">
-                    
-                </DataGrid>
+                <!--<DataGrid x:Name="BioGrid">
+                </DataGrid>-->
+                <ListView Name="BioGrid">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Дата" Width="100" DisplayMemberBinding="{Binding DATA, StringFormat=dd.MM.yyyy}" />
+                            <GridViewColumn Header="Физические" DisplayMemberBinding="{Binding B1}" />
+                            <GridViewColumn Header="Эмоциональные" DisplayMemberBinding="{Binding B2}" />
+                            <GridViewColumn Header="Интелектуальные" DisplayMemberBinding="{Binding B3}" />
+                            <GridViewColumn Header="Суммарное" DisplayMemberBinding="{Binding SUM}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </Grid>
             <Grid Grid.Column="2" Margin="10">
                 <StackPanel>

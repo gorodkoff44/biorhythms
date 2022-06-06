@@ -23,13 +23,14 @@ namespace Биоритмы
     public partial class MainWindow : Window
     {
         private double t; //к-во дней, прошедших с др
+        private double t1; //к-во дней, прошедших с др
+        int z;
         private readonly double pi = 3.14;
         public static DateTime Today { get; }
         public MainWindow()
         {
             InitializeComponent();
         }
-
         private void Pvd_Click(object sender, RoutedEventArgs e)
         {
             if (pvd.IsChecked == true)
@@ -47,37 +48,50 @@ namespace Биоритмы
         public void Ok_Click(object sender, RoutedEventArgs e)
         {
             string prog;
-            if ((ComDlit.Text == "" && pvd.IsChecked == false) || (ProizvProg.Text == "" && pvd.IsChecked == true))
+            if ((ComDlit.Text == "" && pvd.IsChecked == false) || (ProizvProg.Text == "" && pvd.IsChecked == true)) //проверка на пустое поле
             {
                 MessageBox.Show("Введите длительность прогноза", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            prog = ComDlit.Text != "" && pvd.IsChecked == false ? ComDlit.Text : ProizvProg.Text; //ввод длительности прогноза
+            prog = ComDlit.Text != "" && pvd.IsChecked == false ? ComDlit.Text : ProizvProg.Text; //чтение длительности прогноза
+            z = int.Parse(ComDlit.Text);
+            z = int.Parse(ProizvProg.Text);
             Stata.Text = "Дата рождения:\n" + SelDRCom.Text + "\nДлительность прогноза: " + prog + "\n Период с " + DO.Text + " по " + DateTime.Today.ToString("D");
-            int z = int.Parse(ComDlit.Text);
+
             double[] B1 = new double[z]; //состояние биоритмов в %
             double[] B2 = new double[z]; //состояние биоритмов в %
             double[] B3 = new double[z];  //состояние биоритмов в %
-            int[] ID = new int[z];
+            double[] SUM = new double[z]; //Суммарное состояние
+            DateTime[] DATA = new DateTime[z];
+            int[] ID = new int[z]; //временно
+            DateTime a = DateTime.Parse(SelDRCom.Text);  //перевод выбранной даты в datetime
+            DateTime b = DateTime.Parse(DateTime.Today.ToString()); //перевод даты на сегодня в datetime
+            DateTime c = DateTime.Parse(DO.Text); //Дата отчета
+            t = (b - a).TotalDays;//количество дней с др
+
             for (int i = 0; i < z; i++)
             {
-                DateTime a = DateTime.Parse(SelDRCom.Text);  //перевод даты в datetime
-                DateTime b = DateTime.Parse(DateTime.Today.ToString()); //перевод даты в datetime
-                t = (b - a).TotalDays + i;
+                t += i;
                 //Console.WriteLine(t);
                 ID[i] = i;
-                B1[i] = Math.Sin(2 * pi * t / 23) * 100;
-                B2[i] = Math.Sin(2 * pi * t / 28) * 100;
-                B3[i] = Math.Sin(2 * pi * t / 33) * 100;
+                B1[i] = Math.Round(Math.Sin(2 * pi * t / 23) * 100, 2);
+                B2[i] = Math.Round(Math.Sin(2 * pi * t / 28) * 100 ,2);
+                B3[i] = Math.Round(Math.Sin(2 * pi * t / 33) * 100, 2);
+                SUM[i] = Math.Round(B1[i] + B2[i] + B3[i]);
+                DATA[i] = a.AddDays(i);
                 //Console.WriteLine($"{B1} {B2} {B3}\n");
-
             }
             List<BioTable> result = new List<BioTable>(3);
             for (int i = 0; i < z; i++)
             {
-                result.Add(new BioTable(1, B1[i], B2[i], B3[i]));
+                result.Add(new BioTable(1, B1[i], B2[i], B3[i], SUM[i], DATA[i]));
             }
             BioGrid.ItemsSource = result;
+        }
+
+        private void Graphic_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
