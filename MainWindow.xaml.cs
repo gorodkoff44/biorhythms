@@ -22,15 +22,20 @@ namespace Биоритмы
     /// 
     public partial class MainWindow : Window
     {
-        int z;
+        
+        int z, zz;
         double B1, B2, B3, SUM, t, pi = 3.14;
+
         DateTime DATA;
+
+        private void Clean_Click(object sender, RoutedEventArgs e)
+        {
+            List<BioTable> result = new List<BioTable>(3);
+            BioGrid.ItemsSource = result;
+        }
+
         private readonly string prog;
         public static DateTime Today { get; }
-        private void Graphic_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         public MainWindow()
         {
             InitializeComponent();
@@ -50,24 +55,27 @@ namespace Биоритмы
         }
         public void Ok_Click(object sender, RoutedEventArgs e)
         {
-            List<BioTable> result = new List<BioTable>(3); //хранит данные
+            List<BioTable> result = new List<BioTable>(3);
             if ((ComDlit.Text == "" && pvd.IsChecked == false) || (ProizvProg.Text == "" && pvd.IsChecked == true)) //проверка на пустое поле
             {
                 MessageBox.Show("Введите длительность прогноза", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (pvd.IsChecked == true)
+            if (pvd.IsChecked == true) //длительность прогноза
                 z = int.Parse(ProizvProg.Text);
             else
                 z = int.Parse(ComDlit.Text);
-            Stata.Text = "Дата рождения:\n" + SelDRCom.Text + "\nДлительность прогноза: " + prog + "\n Период с " + DO.Text + " по " + DateTime.Today.ToString("D");
+            Stata.Text = "Дата рождения:\n" + SelDRCom.Text + "\nДлительность прогноза: " + prog + "\n Период с " + SelDRCom.Text + " по " + DateTime.Today.ToString("D");
             DateTime a = DateTime.Parse(SelDRCom.Text);  //перевод выбранной даты в datetime
             DateTime b = DateTime.Parse(DateTime.Today.ToString()); //перевод даты на сегодня в datetime
+            DateTime c = DateTime.Parse(DO.Text);
+            
+            zz = Convert.ToInt32((b - c).TotalDays); //Дата отчета
+            z += zz;
             t = (b - a).TotalDays;//количество дней с др
-            for (int i = 0; i < z; i++)
+            for (int i = zz; i < z; i++)
             {
                 t += i;
-                //Console.WriteLine(t);
                 B1 = Math.Round(Math.Sin(2 * pi * t / 23) * 100, 2);
                 B2 = Math.Round(Math.Sin(2 * pi * t / 28) * 100 ,2);
                 B3 = Math.Round(Math.Sin(2 * pi * t / 33) * 100, 2);
