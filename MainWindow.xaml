@@ -49,11 +49,9 @@
                 <CheckBox x:Name="pvd" Grid.ColumnSpan="2" Grid.Row="4" Content="Производный ввод длительности прогноза" Click="Pvd_Click" />
                 <TextBox x:Name="ProizvProg" Grid.Column="1" Grid.Row="3" Text="100" Visibility="Hidden" />
                 <Button x:Name="ok" Content="Ok" Grid.Column="0" Grid.Row="6" Click="Ok_Click" Margin="5" />
-                <Button x:Name="Graphic" Grid.Column="2" Grid.Row="6" Content="Построить график" Click="Graphic_Click" Margin="5" />
+                <Button x:Name="Clean" Grid.Column="2" Grid.Row="6" Content="Очистить" Click="Clean_Click" Margin="5" />
             </Grid>
             <Grid Grid.Column="1" Margin="10">
-                <!--<DataGrid x:Name="BioGrid">
-                </DataGrid>-->
                 <ListView Name="BioGrid">
                     <ListView.View>
                         <GridView>

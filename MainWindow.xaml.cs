@@ -22,20 +22,22 @@ namespace Биоритмы
     /// 
     public partial class MainWindow : Window
     {
-        int z;
-        double B1, B2, B3, SUM, t, pi = 3.14;
-        DateTime DATA;
-        private readonly string prog;
-        public static DateTime Today { get; }
-        private void Graphic_Click(object sender, RoutedEventArgs e)
-        {
+        int z; //длительность прогноза
+        private double B1, B2, B3, SUM, t, pi = 3.14; //Из формулы
+        private DateTime DATA; //дата в таблицу
 
+        private void Clean_Click(object sender, RoutedEventArgs e) //очистка таблицы
+        {
+            List<BioTable> result = new List<BioTable>(3);
+            BioGrid.ItemsSource = result;
         }
+
+        public static DateTime Today { get; }
         public MainWindow()
         {
             InitializeComponent();
         }
-        private void Pvd_Click(object sender, RoutedEventArgs e)
+        private void Pvd_Click(object sender, RoutedEventArgs e) //Для чекбокса длительность прогноза
         {
             if (pvd.IsChecked == true)
             {
@@ -60,7 +62,7 @@ namespace Биоритмы
                 z = int.Parse(ProizvProg.Text);
             else
                 z = int.Parse(ComDlit.Text);
-            Stata.Text = "Дата рождения:\n" + SelDRCom.Text + "\nДлительность прогноза: " + prog + "\n Период с " + DO.Text + " по " + DateTime.Today.ToString("D");
+            Stata.Text = "Дата рождения:\n" + SelDRCom.Text + "\nДлительность прогноза: " + z + "\nПериод с " + DO.Text + " по " + DateTime.Today.ToString("D");
             DateTime a = DateTime.Parse(SelDRCom.Text);  //перевод выбранной даты в datetime
             DateTime b = DateTime.Parse(DateTime.Today.ToString()); //перевод даты на сегодня в datetime
             t = (b - a).TotalDays;//количество дней с др
