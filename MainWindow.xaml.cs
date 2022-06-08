@@ -70,10 +70,10 @@ namespace Биоритмы
             DateTime b = DateTime.Parse(DateTime.Today.ToString()); //перевод даты на сегодня в datetime
             DateTime c = DateTime.Parse(DO.Text);
             
-            zz = Convert.ToInt32((b - c).TotalDays); //Дата отчета
-            z += zz;
+            //zz = Convert.ToInt32((b - c).TotalDays); //Дата отчета
+            //z += zz;
             t = (b - a).TotalDays;//количество дней с др
-            for (int i = zz; i < z; i++)
+            for (int i = 0; i < z; i++)
             {
                 t += i;
                 B1 = Math.Round(Math.Sin(2 * pi * t / 23) * 100, 2);
