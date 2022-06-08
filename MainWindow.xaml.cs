@@ -65,16 +65,24 @@ namespace Биоритмы
             Stata.Text = "Дата рождения:\n" + SelDRCom.Text + "\nДлительность прогноза: " + z + "\nПериод с " + DO.Text + " по " + DateTime.Today.ToString("D");
             DateTime a = DateTime.Parse(SelDRCom.Text);  //перевод выбранной даты в datetime
             DateTime b = DateTime.Parse(DateTime.Today.ToString()); //перевод даты на сегодня в datetime
+            DateTime dto = DateTime.Parse(DO.Text.ToString());
+            int tt;
             t = (b - a).TotalDays;//количество дней с др
+            
+            tt = Convert.ToInt32((dto - a).TotalDays); //к-во дней с др до даты отчета
+            Console.WriteLine($"к-во дней с др до даты отчета {tt}");
+            t -= tt;
+            //z += tt;
             for (int i = 0; i < z; i++)
             {
                 t += i;
                 //Console.WriteLine(t);
-                B1 = Math.Round(Math.Sin(2 * pi * t / 23) * 100, 2);
-                B2 = Math.Round(Math.Sin(2 * pi * t / 28) * 100, 2);
-                B3 = Math.Round(Math.Sin(2 * pi * t / 33) * 100, 2);
+                B1 = Math.Round((Math.Sin(2 * pi * t / 23 * 100)),2);
+                Console.WriteLine($"(2 * {pi} * {t} / 23 * 100);");
+                B2 = Math.Round(Math.Sin(2 * pi * t / 28 * 100), 2);
+                B3 = Math.Round(Math.Sin(2 * pi * t / 33 * 100), 2);
                 SUM = Math.Round(B1 + B2 + B3);
-                DATA = a.AddDays(i);
+                DATA = a.AddDays(i+tt);
                 result.Add(new BioTable(1, B1, B2, B3, SUM, DATA));
                 //Console.WriteLine($"{B1} {B2} {B3}\n");
             }
