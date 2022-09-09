@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Биоритмы"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" MinWidth="1000" MinHeight="500">
     <StackPanel>
         <ToolBar>
             <Button Command="New" Content="Файл" />
