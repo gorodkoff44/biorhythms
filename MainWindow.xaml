@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:Биоритмы"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MinWidth="1000" MinHeight="500">
-    <StackPanel>
+        Title="MainWindow" Height="500" Width="1000" MinWidth="1000" MinHeight="500">
+    <Grid>
+        <StackPanel>
         <ToolBar>
             <Button Command="New" Content="Файл" />
             <Button Command="Open" Content="Операции" />
@@ -52,6 +53,7 @@
                 <Button x:Name="Clean" Grid.Column="2" Grid.Row="6" Content="Очистить" Click="Clean_Click" Margin="5" />
             </Grid>
             <Grid Grid.Column="1" Margin="10">
+
                 <ListView Name="BioGrid">
                     <ListView.View>
                         <GridView>
@@ -70,6 +72,8 @@
                     <TextBlock x:Name="Stata" Text="Введите данные чтобы узнать статистику" TextWrapping="Wrap" />
                 </StackPanel>
             </Grid>
+
         </Grid>
     </StackPanel>
+    </Grid>
 </Window>

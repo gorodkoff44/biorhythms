@@ -73,3 +73,7 @@ C:\Users\comp0705\Desktop\SmirnovaKatz2\biorhythms\obj\Debug\Биоритмы.cs
 C:\Users\comp0705\Desktop\SmirnovaKatz2\biorhythms\obj\Debug\Биоритмы.csproj.CoreCompileInputs.cache
 C:\Users\comp0705\Desktop\SmirnovaKatz2\biorhythms\obj\Debug\Биоритмы.exe
 C:\Users\comp0705\Desktop\SmirnovaKatz2\biorhythms\obj\Debug\Биоритмы.pdb
+C:\Users\comp0705\Desktop\SmirnovaKatz2\biorhythms\obj\Debug\Биоритмы_Content.g.cs
+C:\Users\comp0705\Desktop\SmirnovaKatz2\biorhythms\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\comp0705\Desktop\SmirnovaKatz2\biorhythms\obj\Debug\Loading.g.cs
+C:\Users\comp0705\Desktop\SmirnovaKatz2\biorhythms\obj\Debug\Loading.baml
